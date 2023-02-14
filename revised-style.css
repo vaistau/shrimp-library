@@ -47,7 +47,7 @@ html {
 .width-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 0 4rem;
+  padding: 0 2rem;
   margin: 0 auto;
   /* typical max content width of most websites based on average user screen width */
   max-width: 90rem;
@@ -117,7 +117,7 @@ nav a {
   color: var(--dark-pink);
   text-decoration: 2px underline var(--light-pink);
   font-family: Trebuchet;
-  padding: 1rem 0.5rem;
+  padding: 1rem;
   display: flex;
 }
 
@@ -147,10 +147,6 @@ nav a:hover {
 
 @media only screen and (max-width: 750px) {
   /* general formatting to make it potentially mobile-friendly */
-  .width-wrapper {
-    padding: 0 2rem;
-  }
-
   .main {
     flex-direction: column;
   }
