@@ -1,0 +1,170 @@
+/* this is a little mini css reset */
+/* basically browsers are retarded and different ones apply different default styles to your html, including random margins, padding, etc */
+/* it's v annoying and i found some areas where the browser was fucking w your page so i added one */
+/* also the " * " selector is the global selector. targets every single piece of markup on the page */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+}
+
+/* the root css selector targets everything */
+/* like body but more general and usually used for declaring custom properties, like below */
+/* var() is a custom css property in which you can essentially declare css under a name you choose */
+/* really helpful mainly for repeated colors, so you can instead type in easy to remember words instead of having to copy-and-paste hex codes over and over again */
+/* to use a declared one, you would just use var(--color-name) instead of a hex-code */
+/* idk what your design ideas are past this point so you definitely don't have to keep the ones i included here, but i wanted to add them at least as an example */
+:root {
+  --background: #efefef;
+  --text: #4a4a4a;
+  --light-pink: #ffc0cb;
+  --med-pink: #f4a3b7;
+  --dark-pink: #cb6b85;
+}
+
+body,
+html {
+  background-color: var(--background);
+  color: var(--text);
+  /* usually a good idea to pick a couple fonts in your preferred order bc sometimes ppl use browsers that don't load the font you like and choose an ugly default one. not a big deal when using these basic ones though */
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  /* font size should always use rem units */
+  /* when zooming in and out, or if someone has their settings enlarged by default, the text will increase in size if it's in rem. px will not do so */
+  /* it's debated in web dev, but i tend to practice using rem for everything other than image sizes, borders, shadows, etc */
+  /* the conversion is 16px per 1 rem */
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* good way to make sure your designs don't start to look wonky upon resizing or on wide screens */
+/* essentially wraps all the content on your site in a wrapper, and then centers that wrapper using "margin: 0 auto" */
+.width-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 4rem;
+  margin: 0 auto;
+  /* typical max content width of most websites based on average user screen width */
+  max-width: 90rem;
+  /* this max-width + width=100% trick below is very useful for making sure a website doesn't break upon resizing the browser/viewing on mobile */
+  /* if you set a static width, when the browser gets smaller it will stay that size and get cut off */
+  /* but if you set a max-width and then tell the browser to make the element as wide as possible then it will shrink instead of getting cut off */
+  width: 100%;
+  height: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  /* removes bullets from lists by default */
+  list-style: none;
+}
+
+a {
+  /* removes the underline that links automatically get */
+  text-decoration: none;
+}
+
+h1,
+h1 a {
+  font-family: Tahoma;
+  font-size: 3rem;
+  text-align: center;
+  color: #771111;
+  text-shadow: 2px 2px 1px #de9276;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: Verdana;
+  font-size: 1.5rem;
+  color: #c93a04;
+  text-shadow: 2px 2px 1px #000000;
+}
+
+h3 {
+  font-family: Impact;
+  font-size: 2rem;
+  color: #e841a9;
+}
+
+.main {
+  display: flex;
+  gap: 3rem;
+}
+
+h1.header {
+  padding: 2rem;
+}
+
+nav ul,
+nav a {
+  width: 10.5rem;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: var(--dark-pink);
+  text-decoration: 2px underline var(--light-pink);
+  font-family: Trebuchet;
+  padding: 1rem 0.5rem;
+  display: flex;
+}
+
+nav a.active {
+  background-color: var(--dark-pink);
+  color: var(--background);
+}
+
+nav a:hover {
+  background-color: var(--med-pink);
+  color: var(--background);
+}
+
+.image-sidebar {
+  max-width: 30rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* a media query allows you to set styles at a specific screen width to prevent styles from breaking */
+@media only screen and (max-width: 1150px) {
+  /* make the sidebar image disappear when minimizing the browser bc it breaks the nav and text*/
+  .image-sidebar {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  /* general formatting to make it potentially mobile-friendly */
+  .width-wrapper {
+    padding: 0 2rem;
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  nav ul,
+  nav li,
+  nav a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-image {
+    display: flex;
+    justify-content: center;
+  }
+}

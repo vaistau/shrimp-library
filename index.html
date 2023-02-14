@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shrimp Library</title>
+    <link rel="icon" type="image/x-icon" href="/media/shrimp.png" />
+    <link
+      href="/revised-style.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <style></style>
+  </head>
+
+  <body>
+    <!-- a lot of the changes i'm making rn are generally for the purpose of accessibility -->
+    <!-- but i find that making code accessible tends to also make it cleaner and easier to read/edit in the long run anyways -->
+    <!-- and regardless of all of that it's just good practice, especially if you're just starting out and want to build good habits -->
+    <!-- but lmk if you don't care about any of that and we can cowboy-code this thing without no rules haha -->
+    <!-- and please please please ask any questions you have -->
+
+    <div class="width-wrapper">
+      <!-- headers should be within a heading tag, and heading tags should be semantic (h1 first, h2 follows, etc etc) -->
+      <!-- also made the heading clickable and so it takes you to homepage -->
+      <!-- also i changed menu.html to index.html. index is what is typically used as a homepage bc browsers parse for an index.html file to load upon clicking on a generic website link -->
+      <h1 class="header"><a href="/">Shrimp Library</a></h1>
+      <div class="main">
+        <!-- navigation bars should be in a nav tag  -->
+        <nav>
+          <div class="nav-image">
+            <img src="/media/hearts.gif" /> <img src="/media/hearts.gif" />
+          </div>
+          <!-- converted all those links into an unordered list of links. generally done any time you have anything that repeats like that, even if it doesn't appear to be a list style-wise -->
+          <!-- HTML is a markup language, meaning it doesn't care about what anything looks like -- only about what is IS -->
+          <ul>
+            <li>
+              <a class="active" href="https://shrimp-library.neocities.org/menu"
+                >Menu</a
+              >
+            </li>
+            <li><a href="/mental_health.html">Mental Health</a></li>
+            <li><a href="/social_skill.html">Social Skills</a></li>
+            <li><a href="/practical.html">Practicum</a></li>
+            <li><a href="/care.html">Care Bear</a></li>
+            <li><a href="/medium.html">Media</a></li>
+          </ul>
+        </nav>
+        <div class="content">
+          <p class="description">
+            Shrimp Library is a repository of random, highly specific knowledge
+            gathered by a group of nifty women who decided to share it with the
+            world. All the advice is tailored for women to meet their unique
+            needs.
+          </p>
+        </div>
+        <!-- all images should have an alt tag. this is 1) for screen readers, and 2) if your image breaks or someone's tech can't load it for whatever reason, there will at least be text describing the image -->
+        <div class="image-sidebar">
+          <img src="/media/home.jpg" alt="pink pixel bedroom" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

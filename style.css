@@ -1,0 +1,140 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+body {
+  background-color: #efefef;
+  color: #4a4a4a;
+  font-family: Verdana;
+  width: 70%;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+h1 {
+  font-family: Tahoma;
+  font-size: 50px;
+  text-align: center;
+  color: #771111;
+  text-shadow: 2px 2px 1px #de9276;
+}
+
+h2 {
+  font-family: Verdana;
+  font-size: 25px;
+  text-align: center;
+  color: #c93a04;
+  text-shadow: 2px 2px 1px #000000;
+}
+
+h3 {
+  font-family: Impact;
+  font-size: 30px;
+  text-align: justify;
+  color: #e841a9;
+}
+
+body {
+  background-color: #efefef;
+  color: #505050;
+  font-family: Helvetica;
+  line-height: 1.5;
+  font-size: 19px;
+  width: 70%;
+}
+
+.header {
+  height: 100px;
+  margin-top: 30px;
+  text-align: justify;
+  display: block;
+}
+
+.navbar {
+  overflow: hidden;
+  margin: auto;
+  text-align: center;
+  border-color: black;
+  display: block;
+  border-top-width: 50px;
+}
+
+/* The side navigation menu */
+
+.right_sidebar {
+  margin: 0;
+  padding: 0;
+  background-color: #efefef;
+  float: right;
+  height: 100%;
+  position: static;
+  width: 0%;
+  display: block;
+}
+
+.left_sidebar {
+  margin: 0;
+  padding: 70px;
+  width: 200px;
+  background-color: #efefef;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Sidebar links */
+.left_sidebar a {
+  display: block;
+  color: #c7536b;
+  padding: 16px;
+  text-decoration: underline pink 2px;
+  font-family: Trebuchet;
+}
+
+/* Active/current link */
+.left_sidebar a.active {
+  background-color: #cb6b85;
+  color: white;
+}
+
+/* Links on mouse-over */
+.left_sidebar a:hover:not(.active) {
+  background-color: #f4a3b7;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 400px;
+  padding: 1px 16px;
+  height: 1000px;
+  display: flex;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .left_sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .left_sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .left_sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
