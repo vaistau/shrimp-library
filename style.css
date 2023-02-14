@@ -1,140 +1,166 @@
-/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
-   HTML content. To learn how to do something, just try searching Google for questions like
-   "how to change link color." */
-
-body {
-  background-color: #efefef;
-  color: #4a4a4a;
-  font-family: Verdana;
-  width: 70%;
+/* this is a little mini css reset */
+/* basically browsers are retarded and different ones apply different default styles to your html, including random margins, padding, etc */
+/* it's v annoying and i found some areas where the browser was fucking w your page so i added one */
+/* also the " * " selector is the global selector. targets every single piece of markup on the page */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
 }
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+/* the root css selector targets everything */
+/* like body but more general and usually used for declaring custom properties, like below */
+/* var() is a custom css property in which you can essentially declare css under a name you choose */
+/* really helpful mainly for repeated colors, so you can instead type in easy to remember words instead of having to copy-and-paste hex codes over and over again */
+/* to use a declared one, you would just use var(--color-name) instead of a hex-code */
+/* idk what your design ideas are past this point so you definitely don't have to keep the ones i included here, but i wanted to add them at least as an example */
+:root {
+  --background: #efefef;
+  --text: #4a4a4a;
+  --light-pink: #ffc0cb;
+  --med-pink: #f4a3b7;
+  --dark-pink: #cb6b85;
 }
 
-h1 {
+body,
+html {
+  background-color: var(--background);
+  color: var(--text);
+  /* usually a good idea to pick a couple fonts in your preferred order bc sometimes ppl use browsers that don't load the font you like and choose an ugly default one. not a big deal when using these basic ones though */
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  /* font size should always use rem units */
+  /* when zooming in and out, or if someone has their settings enlarged by default, the text will increase in size if it's in rem. px will not do so */
+  /* it's debated in web dev, but i tend to practice using rem for everything other than image sizes, borders, shadows, etc */
+  /* the conversion is 16px per 1 rem */
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* good way to make sure your designs don't start to look wonky upon resizing or on wide screens */
+/* essentially wraps all the content on your site in a wrapper, and then centers that wrapper using "margin: 0 auto" */
+.width-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+  margin: 0 auto;
+  /* typical max content width of most websites based on average user screen width */
+  max-width: 90rem;
+  /* this max-width + width=100% trick below is very useful for making sure a website doesn't break upon resizing the browser/viewing on mobile */
+  /* if you set a static width, when the browser gets smaller it will stay that size and get cut off */
+  /* but if you set a max-width and then tell the browser to make the element as wide as possible then it will shrink instead of getting cut off */
+  width: 100%;
+  height: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  /* removes bullets from lists by default */
+  list-style: none;
+}
+
+a {
+  /* removes the underline that links automatically get */
+  text-decoration: none;
+}
+
+h1,
+h1 a {
   font-family: Tahoma;
-  font-size: 50px;
+  font-size: 3rem;
   text-align: center;
   color: #771111;
   text-shadow: 2px 2px 1px #de9276;
+  text-transform: uppercase;
 }
 
 h2 {
   font-family: Verdana;
-  font-size: 25px;
-  text-align: center;
+  font-size: 1.5rem;
   color: #c93a04;
   text-shadow: 2px 2px 1px #000000;
 }
 
 h3 {
   font-family: Impact;
-  font-size: 30px;
-  text-align: justify;
+  font-size: 2rem;
   color: #e841a9;
 }
 
-body {
-  background-color: #efefef;
-  color: #505050;
-  font-family: Helvetica;
-  line-height: 1.5;
-  font-size: 19px;
-  width: 70%;
+.main {
+  display: flex;
+  gap: 3rem;
 }
 
-.header {
-  height: 100px;
-  margin-top: 30px;
-  text-align: justify;
-  display: block;
+h1.header {
+  padding: 2rem;
 }
 
-.navbar {
-  overflow: hidden;
-  margin: auto;
-  text-align: center;
-  border-color: black;
-  display: block;
-  border-top-width: 50px;
+nav ul,
+nav a {
+  width: 10.5rem;
 }
 
-/* The side navigation menu */
-
-.right_sidebar {
-  margin: 0;
-  padding: 0;
-  background-color: #efefef;
-  float: right;
-  height: 100%;
-  position: static;
-  width: 0%;
-  display: block;
+nav ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
 }
 
-.left_sidebar {
-  margin: 0;
-  padding: 70px;
-  width: 200px;
-  background-color: #efefef;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
-
-/* Sidebar links */
-.left_sidebar a {
-  display: block;
-  color: #c7536b;
-  padding: 16px;
-  text-decoration: underline pink 2px;
+nav a {
+  color: var(--dark-pink);
+  text-decoration: 2px underline var(--light-pink);
   font-family: Trebuchet;
-}
-
-/* Active/current link */
-.left_sidebar a.active {
-  background-color: #cb6b85;
-  color: white;
-}
-
-/* Links on mouse-over */
-.left_sidebar a:hover:not(.active) {
-  background-color: #f4a3b7;
-  color: white;
-}
-
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-div.content {
-  margin-left: 400px;
-  padding: 1px 16px;
-  height: 1000px;
+  padding: 1rem;
   display: flex;
 }
 
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
-@media screen and (max-width: 700px) {
-  .left_sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .left_sidebar a {
-    float: left;
-  }
-  div.content {
-    margin-left: 0;
+nav a.active {
+  background-color: var(--dark-pink);
+  color: var(--background);
+}
+
+nav a:hover {
+  background-color: var(--med-pink);
+  color: var(--background);
+}
+
+.image-sidebar {
+  max-width: 30rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* a media query allows you to set styles at a specific screen width to prevent styles from breaking */
+@media only screen and (max-width: 1150px) {
+  /* make the sidebar image disappear when minimizing the browser bc it breaks the nav and text*/
+  .image-sidebar {
+    display: none;
   }
 }
 
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
-  .left_sidebar a {
-    text-align: center;
-    float: none;
+@media only screen and (max-width: 750px) {
+  /* general formatting to make it potentially mobile-friendly */
+  .main {
+    flex-direction: column;
+  }
+
+  nav ul,
+  nav li,
+  nav a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-image {
+    display: flex;
+    justify-content: center;
   }
 }
