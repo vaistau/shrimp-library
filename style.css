@@ -1,5 +1,5 @@
 /* this is a little mini css reset */
-/* basically browsers are retarded and different ones apply different default styles to your html, including random margins, padding, etc */
+/* basically browsers are dumb and different ones apply different default styles to your html, including random margins, padding, etc */
 /* it's v annoying and i found some areas where the browser was fucking w your page so i added one */
 /* also the " * " selector is the global selector. targets every single piece of markup on the page */
 * {
