@@ -1,5 +1,5 @@
 /* this is a little mini css reset */
-/* basically browsers are dumb and different ones apply different default styles to your html, including random margins, padding, etc */
+/* basically browsers are retarded and different ones apply different default styles to your html, including random margins, padding, etc */
 /* it's v annoying and i found some areas where the browser was fucking w your page so i added one */
 /* also the " * " selector is the global selector. targets every single piece of markup on the page */
 * {
@@ -17,11 +17,11 @@
 /* to use a declared one, you would just use var(--color-name) instead of a hex-code */
 /* idk what your design ideas are past this point so you definitely don't have to keep the ones i included here, but i wanted to add them at least as an example */
 :root {
-  --background: #efefef;
-  --text: #4a4a4a;
-  --light-pink: #ffc0cb;
-  --med-pink: #f4a3b7;
-  --dark-pink: #cb6b85;
+  --background: #fdfdfd;
+  --text: #32926f;
+  --light-pink: #b785b7;
+  --med-pink: #8d538d;
+  --dark-pink: #533153;
 }
 
 body,
@@ -35,7 +35,7 @@ html {
   /* when zooming in and out, or if someone has their settings enlarged by default, the text will increase in size if it's in rem. px will not do so */
   /* it's debated in web dev, but i tend to practice using rem for everything other than image sizes, borders, shadows, etc */
   /* the conversion is 16px per 1 rem */
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   width: 100%;
@@ -75,8 +75,8 @@ h1 a {
   font-family: Tahoma;
   font-size: 3rem;
   text-align: center;
-  color: #771111;
-  text-shadow: 2px 2px 1px #de9276;
+  color: #c93384;
+  text-shadow: 2px 2px 1px #ff69b4;
   text-transform: uppercase;
 }
 
@@ -88,9 +88,15 @@ h2 {
 }
 
 h3 {
-  font-family: Impact;
+  font-family: Arial Black;
+  font-size: 3rem;
+  color: #7cd2b3;
+}
+
+h4 {
+  font-family: Verdana;
   font-size: 2rem;
-  color: #e841a9;
+  color: #7cd2b3;
 }
 
 .main {
@@ -99,7 +105,11 @@ h3 {
 }
 
 h1.header {
-  padding: 2rem 0;
+  margin: 0 -2rem 0 -2rem;
+  min-height: 15.5rem;
+  margin-bottom: 3rem;
+  background-image: url("/media/header.png");
+  background-position: center;
 }
 
 nav ul,
@@ -107,17 +117,23 @@ nav a {
   width: 10.5rem;
 }
 
+p {
+  margin: 5px 15px 20px;
+}
+
 nav ul {
   display: flex;
   flex-direction: column;
   margin-top: 0.5rem;
+  position: sticky;
+  top: 0;
 }
 
 nav a {
   color: var(--dark-pink);
-  text-decoration: 2px underline var(--light-pink);
-  font-family: Trebuchet;
-  padding: 1rem;
+  text-decoration: none;
+  font-family: Tahoma;
+  padding: 0.5rem;
   display: flex;
 }
 
@@ -133,8 +149,10 @@ nav a:hover {
 
 .image-sidebar {
   max-width: 30rem;
-  width: 100%;
+  width: 70%;
+  padding-left: 1rem;
   overflow: hidden;
+  text-align: center;
 }
 
 /* a media query allows you to set styles at a specific screen width to prevent styles from breaking */
